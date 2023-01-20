@@ -3,6 +3,7 @@ package com.mx.accenture.springmvc.example.security;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpStatus;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -45,15 +46,11 @@ public class WebSecurityConfig {
                 .authorizeRequests()
                 .anyRequest()
                 .authenticated()
-                .and()
-                .httpBasic()  .authenticationEntryPoint(new AuthenticationEntryPoint(){
+                .and().exceptionHandling().authenticationEntryPoint(new AuthenticationEntryPoint(){
                     @Override
                     public  void commence(HttpServletRequest request, HttpServletResponse response, AuthenticationException authenticationException)throws IOException, ServletException {
+
                         response.sendRedirect("/");
-                        /*
-                        response.setHeader("WWW-Authenticate","Basic realm='myRealm'");
-                        response.sendError(HttpServletResponse.SC_UNAUTHORIZED,authenticationException.getMessage());
-                        */
                     }
 
                 })

@@ -6,14 +6,22 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityCustomizer;
 import org.springframework.security.config.http.SessionCreationPolicy;
+import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
+import org.springframework.security.web.AuthenticationEntryPoint;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 
 @Configuration
 public class WebSecurityConfig {
@@ -38,7 +46,17 @@ public class WebSecurityConfig {
                 .anyRequest()
                 .authenticated()
                 .and()
-                .httpBasic()
+                .httpBasic()  .authenticationEntryPoint(new AuthenticationEntryPoint(){
+                    @Override
+                    public  void commence(HttpServletRequest request, HttpServletResponse response, AuthenticationException authenticationException)throws IOException, ServletException {
+                        response.sendRedirect("/");
+                        /*
+                        response.setHeader("WWW-Authenticate","Basic realm='myRealm'");
+                        response.sendError(HttpServletResponse.SC_UNAUTHORIZED,authenticationException.getMessage());
+                        */
+                    }
+
+                })
                 .and()
                 .sessionManagement()
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
@@ -48,10 +66,15 @@ public class WebSecurityConfig {
                 .build();
     }
 
+    @Bean
+    public WebSecurityCustomizer webSecurityCustomizer(){
+
+        return (web -> web.ignoring().antMatchers("/"));
+    }
 
     // Set an in-memory static User
     @Bean
-    UserDetailsService userDetailsService() {
+    public UserDetailsService userDetailsService() {
         InMemoryUserDetailsManager manager = new InMemoryUserDetailsManager();
         manager.createUser(User.withUsername("admin")
                 .password(passwordEncoder().encode("admin"))

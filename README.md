@@ -16,7 +16,7 @@ coding!
 ### Project Structure and Current Functionality
 The flow of the project is the following:
 
-![Project Flow](C:\Users\luis.meza\Pictures\projectFlow.jpeg)
+![Project Flow](src/main/resources/static/images/projectFlow.jpeg)
 
 In the image above, we can see that:
 - A call is made to the API, which will be available when the server is running. By default, the API will run on **port 8080**. The call of the API is handled by the ***Controller*** class, which will get information about the call, like, http method, path parameters, variables, request body, etc.
@@ -26,7 +26,7 @@ In the image above, we can see that:
 
 The current project folder structure is the following:
 
-![Project Structure](C:\Users\luis.meza\Pictures\projectStructure.png)
+![Project Structure](src/main/resources/static/images/projectStructure.png)
 
 Where the ***Controller***, ***Service***, and ***Dao*** folders contain the **Controller** class, **Service** class and interface, and **Repository** interfaces respectively.
 The ***Dto*** and ***Model*** folder contain the **Dto (Data Transfer Object)** and the **Model** classes for the ***Course*** entity. The actual class that is persisted in the API is the **Model** class, the Dto is used to optimize responses and transfer of objects.

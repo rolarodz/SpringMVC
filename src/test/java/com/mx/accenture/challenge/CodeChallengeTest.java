@@ -1,4 +1,4 @@
-package com.mx.accenture.springmvc.example;
+package com.mx.accenture.challenge;
 
 import com.mx.accenture.challenge.CodeChallenge;
 import org.junit.jupiter.api.Test;

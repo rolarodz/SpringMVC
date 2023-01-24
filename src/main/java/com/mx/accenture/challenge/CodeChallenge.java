@@ -30,8 +30,12 @@ Example:
     Expected output: null
 */
 
+import java.util.ArrayList;
+
 public class CodeChallenge {
-    public static void main(String[] args) {
+    public Integer[]  resolve(Integer[] numbers, Integer target){
+        Integer[] solution = new Integer[0];
         // TODO
+        return solution;
     }
 }

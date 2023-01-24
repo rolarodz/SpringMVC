@@ -5,7 +5,8 @@ package com.mx.accenture.challenge;
 
 * Instructions:
 Given an array of integers, and an integer representing a target sum.
-Write a Java program that can read the array and display a pair of numbers that sum up to the target sum.
+
+* Write a Java program that can read the array and display a pair of numbers that sum up to the target sum.
 Example:
     Input:
         [2,7,11,15], target =18
@@ -33,9 +34,12 @@ Example:
 import java.util.ArrayList;
 
 public class CodeChallenge {
+
     public Integer[]  resolve(Integer[] numbers, Integer target){
         Integer[] solution = new Integer[0];
-        // TODO
+        //TODO Implement your solution here.
+
         return solution;
     }
+
 }

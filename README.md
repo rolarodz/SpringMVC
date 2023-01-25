@@ -1,55 +1,69 @@
 ![Alt text](https://www.accenture.com/content/dam/accenture/final/images/icons/symbol/Acc_Logo_Black_Purple_RGB.png?raw=true "Accenture")
 # Accenture Hiring Challenge
 ***
-## Table of Contents
+# Table of Contents
 1. [Introduction](#introduction)
-2. [Project Structure and Current Functionality](#project-structure-and-current-functionality)
-3. [What You Will Do](#what-you-will-do)
-4. [How To Test Your Endpoints](#how-to-test-your-endpoints)
+2. [Test Gorilla Assessment](#test-gorilla-assessment)
+3. [Project Structure and Current Functionality](#project-structure-and-current-functionality)
+4. [What You Will Do](#what-you-will-do)
+5. [How To Test Your Endpoints](#how-to-test-your-endpoints)
 ***
-### Introduction
-Welcome to the **Accenture Hiring Challenge**!, This file contains all the information you need to know about the project.
-This Project consist of an API made with Spring Boot and JPA.  For this project, you will need to implement the missing 
-functionality in the project. To get the code, ***fork*** this repository, and ***clone*** it into a local repository. Once you have done this, you are ready to start
-coding!
-***
-### Project Structure and Current Functionality
-The flow of the project is the following:
+## Introduction
+Welcome to the **Accenture Backend Engineering Hiring Challenge**!, this README file contains all the information you need to know to complete your challenge.
+The challenge is divided in two main tasks: 
 
-![Project Flow](src/main/resources/static/images/projectFlow.jpeg)
+1. [Test Gorilla Assessment](#test-gorilla-assessment)
+2. [Hands-on Java & Spring Challenge](#hands-on-challenge)
 
-In the image above, we can see that:
-- A call is made to the API, which will be available when the server is running. By default, the API will run on **port 8080**. The call of the API is handled by the ***Controller*** class, which will get information about the call, like, http method, path parameters, variables, request body, etc.
-- The ***Controller*** class calls the ***Service*** class, where the business logic is implemented.
-- Then, the ***Service*** class calls the ***Repository*** interface, the repository will simplify the query of data in the database.
-- Finally, the data is stored in the **Database**, and the application returns a response depending on the result of the operation.
+## Test Gorilla Assessment
 
-The current project folder structure is the following:
+The first challenge you need to resolve is an assessment in TestGorilla. This assessment consists of an English Test to evaluate your skills in English language and a set of 10 technical questions that you'll need to answer in video; for each question you'll have 2 minutes to answer.
 
-![Project Structure](src/main/resources/static/images/projectStructure.png)
+### Requirements
+* Good Internet Connection
+* Enable your webcam
 
-Where the ***Controller***, ***Service***, and ***Dao*** folders contain the **Controller** class, **Service** class and interface, and **Repository** interfaces respectively.
-The ***Dto*** and ***Model*** folder contain the **Dto (Data Transfer Object)** and the **Model** classes for the ***Course*** entity. The actual class that is persisted in the API is the **Model** class, the Dto is used to optimize responses and transfer of objects.
+## Hands On Challenge
 
-Currently, the project just has the ***Course*** entity with its GET and DELETE
-methods.
+The second challenge you'll need to resolve is a hands-on coding challenge. In order to resolve it you'll need to download this [project]() and import it into your preferred IDE (We recommend IntelliJ).
 
-In image above, right at the bottom, we can see the Unit Testing package, here, you will create your Unit Tests for each implementation that you create.
+### Project Requirements
+1. Install Oracle JDK 8.
+2. Install and Configure Maven.
+3. Install a Java IDE. We suggest to use IntelliJ, but you can use others.
+4. Install Postman. This will be used to test your endpoints. 
+5. A GitHub account.
 
-***
-### What You Will Do
-Your job is to implement the ***create***, ***update*** and ***get one*** methods functionality (POST, PUT and GET) for the **Course** entity,
-as well as its respective Unit Tests.
+### Project Details
 
-***
-### How To Test Your Endpoints
-To test your implementations and endpoints, you need to follow the next steps (This applies for all endpoints):
-- Open Postman
-- Go to the "login" endpoint
-- Create a request with the GET method and send the following credentials in the request body:
-  - user: admin
-  - password: admin
-- The application will return a Bearer Token, save it or copy it wherever you want
-- Use the Bearer Token returned by the application in every endpoint you want to test
-***
-#### Good luck!
+The project that you will work on is a **Java 8** project that uses **SpringBoot** and an **In-Memory H2 database** initialized at runtime to Create, Read, Update and Delete (CRUD) a `Course`. 
+
+The project itself contains a single entity named `Course` and you can find `listCourse` and `deleteCourse` methods already implemented and test cases using JUnit.
+
+Additionally, the project contains a logic challenge in the `com.mx.accenture.challenge.CodeChallenge` class. 
+
+### Hands-On Tasks
+
+Next, you'll find the set of tasks you need to achieve to successfully complete your challenge.
+
+1. This project has been deliberately modified to make it fail, so your first task is to find all errors in it in order to make it compile, build and run. **Note.** Errors can be found all over the project.<br><br>
+
+    Once your project runs you can access the Welcome page using this URL http://localhost:8080. The Welcome page will display instructions on how to test your endpoints. <br><br>
+
+2. Implement the `findById`, `addCourse` and `updateCourse` methods to the existing `Course` component.
+3. Create an additional `Student` component that contains `id`, `name` and `listOfCourses` attributes; the `listOfCourses` attribute should be a list of `Course` objects.
+4. Implement the `listAllStudents`, `findStudentById`, `addStudent`, `updateStudent`, `deleteStudent` and `listStudentCourses` methods.
+5. While implementing your methods make sure you use Java 8 features; use at least lambdas and streams.  
+6. Implement unit testing of methods required on items #2 and #4. **The most coverage you achieve the higher grade you get.**
+7. Test your endpoints using Postman. See instructions on Welcome Page. 
+8. Solve the Logic Challenge mentioned on [Project Details](#project-details) section. The project already contains a set of test cases to validate that your solution is correct.
+
+### Project Deliverable
+
+You'll have 6 hours to complete all your tasks, once you finish you  upload your project to a new public GitHub repository. **Very important:** The repository should have a single commit and the hour of the commit should be before the 6 hours deadline.  
+
+In the Hiring Challenge platform you will be required to capture the URL address of your repository before you complete it.
+
+ 
+
+## Good luck!
